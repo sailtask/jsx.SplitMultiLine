@@ -28,10 +28,6 @@ SplitMultiLine.prototype.execute = function() {
 
 	var elems = targetLayer.textItem.contents;
 
-	if (elems.length <= 1) {
-		return this.__exit("複数行のテキストレイヤーを選択してください");
-	}
-
 	// var winObj = new Window("dialog", "SplitMultiLine", [ 0, 0, 400, 150 ]);
 	// winObj.lPnl = winObj.add("panel",[ 20, 20, 380, 80 ],"行間を開ける場合は行送りを設定してください");
 	// winObj.lPnl.add("statictext", [ 30, 20, 30 + 30, 20 + 20 ], "行送り");
@@ -45,10 +41,10 @@ SplitMultiLine.prototype.execute = function() {
 	// });
 	// winObj.center();
 
-	if (winObj.show() == 2) {
-		return this.__exit();
-	}
-	var lineSpace = parseInt(winObj.lPnl.lineSpace.text) < 1000 ? parseInt(winObj.lPnl.lineSpace.text) : 0;
+	// if (winObj.show() == 2) {
+	// 	return this.__exit();
+	// }
+	// var lineSpace = parseInt(winObj.lPnl.lineSpace.text) < 1000 ? parseInt(winObj.lPnl.lineSpace.text) : 0;
 
 
 	for ( var i = 0; i < elems.length; i++) {
@@ -58,9 +54,9 @@ SplitMultiLine.prototype.execute = function() {
 		var newObj = targetLayer.duplicate();
 		newObj.name = '';
 		newObj.textItem.contents = elems[i];
-		if (lineSpace) {
-			newObj.translate(null, lineSpace * i);
-		}
+		// if (lineSpace) {
+		// 	newObj.translate(null, lineSpace * i);
+		// }
 	}
 	this.__destructor();
 };
