@@ -26,24 +26,24 @@ SplitMultiLine.prototype.execute = function() {
 		return this.__exit("テキストレイヤーを選択して下さい");
 	}
 
-	var elems = targetLayer.textItem.contents.split(BR);
+	var elems = targetLayer.textItem.contents;
 
 	if (elems.length <= 1) {
 		return this.__exit("複数行のテキストレイヤーを選択してください");
 	}
 
-	var winObj = new Window("dialog", "SplitMultiLine", [ 0, 0, 400, 150 ]);
-	winObj.lPnl = winObj.add("panel",[ 20, 20, 380, 80 ],"行間を開ける場合は行送りを設定してください");
-	winObj.lPnl.add("statictext", [ 30, 20, 30 + 30, 20 + 20 ], "行送り");
-	winObj.lPnl.add("statictext", [ 120, 20, 120 + 30, 20 + 20 ], "px");
-	winObj.lPnl.lineSpace = winObj.lPnl.add("edittext", [ 70, 20, 70 + 40, 20 + 20 ], "");
-	winObj.btnOk = winObj.add("button", [ 110, 100, 110 + 80, 130 ], "OK", {
-		name : "ok"
-	});
-	winObj.btnNo = winObj.add("button", [ 210, 100, 210 + 80, 130 ], "キャンセル", {
-		name : "cancel"
-	});
-	winObj.center();
+	// var winObj = new Window("dialog", "SplitMultiLine", [ 0, 0, 400, 150 ]);
+	// winObj.lPnl = winObj.add("panel",[ 20, 20, 380, 80 ],"行間を開ける場合は行送りを設定してください");
+	// winObj.lPnl.add("statictext", [ 30, 20, 30 + 30, 20 + 20 ], "行送り");
+	// winObj.lPnl.add("statictext", [ 120, 20, 120 + 30, 20 + 20 ], "px");
+	// winObj.lPnl.lineSpace = winObj.lPnl.add("edittext", [ 70, 20, 70 + 40, 20 + 20 ], "");
+	// winObj.btnOk = winObj.add("button", [ 110, 100, 110 + 80, 130 ], "OK", {
+	// 	name : "ok"
+	// });
+	// winObj.btnNo = winObj.add("button", [ 210, 100, 210 + 80, 130 ], "キャンセル", {
+	// 	name : "cancel"
+	// });
+	// winObj.center();
 
 	if (winObj.show() == 2) {
 		return this.__exit();
